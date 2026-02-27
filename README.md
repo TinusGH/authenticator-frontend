@@ -17,6 +17,18 @@ This frontend interacts with the backend API, sending requests to:
 
 It automatically attaches JWT tokens to requests after login. The app runs on **http://localhost:3000** by default during development.
 
+## Backend Integration
+
+This frontend communicates with the **Authenticator – Backend API** for all user authentication and data retrieval.
+
+- **Repository:** [Authenticator – Backend API](https://github.com/YOUR_USERNAME/authenticator-api)
+- **Endpoints used:**
+  - `POST /api/auth/register` – Register a new user
+  - `POST /api/auth/login` – Log in a user
+  - `GET /api/auth/me` – Retrieve current user details (requires JWT token)
+
+**Note:** Ensure the backend API is running locally (default: `https://localhost:5000`) before using the frontend
+
 ## Prerequisites
 
 - [Node.js 18+](https://nodejs.org/)
