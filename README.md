@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Authenticator - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React frontend application for user authentication that works with the **Authenticator Backend API**.  
+Provides:
 
-## Available Scripts
+- User registration
+- User login
+- Viewing authenticated user details (first name, last name, email)
+
+## Overview
+
+This frontend interacts with the backend API, sending requests to:
+
+- `/api/auth/register`
+- `/api/auth/login`
+- `/api/auth/me`
+
+It automatically attaches JWT tokens to requests after login. The app runs on **http://localhost:3000** by default during development.
+
+## Backend Integration
+
+This frontend communicates with the **Authenticator – Backend API** for all user authentication and data retrieval.
+
+- **Repository:** [Authenticator – Backend API](https://github.com/YOUR_USERNAME/authenticator-api)
+- **Endpoints used:**
+  - `POST /api/auth/register` – Register a new user
+  - `POST /api/auth/login` – Log in a user
+  - `GET /api/auth/me` – Retrieve current user details (requires JWT token)
+
+**Note:** Ensure the backend API is running locally (default: `https://localhost:5000`) before using the frontend
+
+## Prerequisites
+
+- [Node.js 18+](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- Backend API running locally (see [Authenticator Backend API](https://github.com/YOUR_USERNAME/authenticator-api) repository)
+
+## Getting Started
+
+1. Clone the repository:
+git clone https://github.com/YOUR_USERNAME/authenticator-frontend.git
+cd authenticator-frontend
+
+2. Install dependencies:
+npm install
+
+3. Run the app in development mode:
+npm start
+
+Open http://localhost:3000 in your browser. The page reloads automatically when you make changes.
+
+ API Configuration
+
+The frontend expects the backend API to be running at:
+https://localhost:5000/api
+
+If your backend is running at a different URL or port, update the baseURL in src/api.js accordingly:
+const api = axios.create({
+  baseURL: "https://localhost:5000/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in development mode. Open http://localhost:3000
+ to view it in your browser. Hot reloads on changes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+npm test
 
-### `npm test`
+Launches the test runner in interactive watch mode.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm run build
 
-### `npm run build`
+Builds the app for production in the build folder. Bundles React for optimized performance.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm run eject
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Removes the build dependency and exposes the full configuration. This is a one-way operation.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Learn More
 
-### `npm run eject`
+React documentation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create React App documentation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Axios documentation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Project Structure
+src/
+├─ api.js            # Axios instance with JWT interceptor
+├─ App.js            # Main app routing and state
+├─ pages/            # Register, Login, UserDetails, Home pages
+├─ components/       # NavBar, reusable components
+└─ ...
+License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License
