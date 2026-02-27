@@ -101,3 +101,14 @@ src/
 License
 
 MIT License
+
+## Screenshots
+
+### Login Page
+![Full Screen Login](Screenshots/LoginFullScreen.png)
+
+### Home Page (After Login)
+![Home Page with Logout](Screenshots/PostLoginHomeWithLogout.png)
+
+### User Details Page
+![User Details Narrow View](Screenshots/UserDetailsNarrow.png)
